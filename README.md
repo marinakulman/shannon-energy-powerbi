@@ -1,4 +1,4 @@
-# Shannon Energy — Sales & Retention Analytics in Power BI
+# Shannon Energy - Sales & Retention Analytics in Power BI
 
 An end-to-end Power BI build for a fictional Irish energy retailer: raw CSV files cleaned
 in Power Query, modelled into a star schema, measured with 29 DAX measures, secured with
@@ -14,7 +14,7 @@ row-level security, and presented as a report a sales director could open every 
 
 Price Comparison has the lowest cost per acquisition in the business at €46. On a CPA
 league table it wins outright. But only 35.9% of its customers are still there twelve
-months later — the worst retention of any channel.
+months later - the worst retention of any channel.
 
 Once churn is priced in, each *surviving* Price Comparison customer costs **€128**.
 Digital, whose CPA is 26% higher at €58, delivers a retained customer for **€82**.
@@ -39,7 +39,7 @@ reporting cannot answer three questions:
 
 ## The report
 
-### Sales performance — the one-page view
+### Sales performance - the one-page view
 
 Closing base, net adds, plan achievement, monthly churn, CPA and rolling 12-month revenue,
 with net growth by channel, acquisitions against plan, and plan delivery by channel and
@@ -68,7 +68,7 @@ sits alone in the bottom-left corner: cheap to buy, quick to leave.
 
 Findings are labelled by how strongly the data supports them.
 
-### FACT — directly supported by the data
+### FACT - directly supported by the data
 
 | Channel | Acquisitions | CPA | 12-month retention | Cost per retained customer |
 |---|---:|---:|---:|---:|
@@ -84,22 +84,22 @@ Findings are labelled by how strongly the data supports them.
 - **Ranking by CPA and by cost per retained customer disagree.** Price Comparison moves
   from first to fourth of five once retention is applied.
 - **Churn risk is not flat across tenure.** It sits near 3.4% for most months, then rises
-  to 7.8% at month 12 — more than double — before falling back.
+  to 7.8% at month 12 - more than double - before falling back.
 - **Price Comparison loses half its customers within eleven months**, and is down to
   roughly 11% by month 24. No other channel falls below 40%.
 - Blended monthly churn is **2.9%**; acquisitions are **4.2% behind plan**; rolling
   12-month revenue is **€158M**.
 
-### INFERENCE — a reasonable reading of the data
+### INFERENCE - a reasonable reading of the data
 
 Retention rises as CPA rises across four of the five channels, which is consistent with
 higher-touch channels selecting for less price-sensitive customers. The exception is
 Partner / Retail.
 
-### HYPOTHESIS — requires further investigation
+### HYPOTHESIS - requires further investigation
 
 The churn spike at month 12 **coincides with** the expiry of twelve-month contracts. This
-is a plausible explanation, **not a demonstrated cause** — the data contains no renewal
+is a plausible explanation, **not a demonstrated cause** - the data contains no renewal
 event, no price change at renewal and no competitor pricing.
 
 ---
@@ -107,7 +107,7 @@ event, no price change at renewal and no competitor pricing.
 ## Recommendations
 
 1. **Move acquisition budget from Price Comparison to Digital.** Digital delivers a
-   retained customer for €82 against €128 — 36% less.
+   retained customer for €82 against €128 - 36% less.
 2. **Intervene at month 10, not month 13.** Churn risk more than doubles at month 12, and
    the timing is predictable in advance.
 3. **Treat Price Comparison as a volume channel, not a growth channel.** It brings the most
@@ -123,8 +123,8 @@ event, no price change at renewal and no competitor pricing.
 
 ### Cleaning is part of the build, not a preliminary
 
-Every transformation step in Power Query is **named** — `Map channel to code`,
-`Handle missing region`, `Add churn outcome` — rather than left as `Changed Type1`. Anyone
+Every transformation step in Power Query is **named** - `Map channel to code`,
+`Handle missing region`, `Add churn outcome` - rather than left as `Changed Type1`. Anyone
 can reopen the file and follow what was done and why.
 
 The source data needed it: twenty different spellings of the channel names, acquisition
@@ -140,7 +140,7 @@ design, not something bolted on at publication.
 
 Retention is calculated on **mature cohorts only**. A cohort acquired three months before
 the cut-off cannot yet have a twelve-month outcome, so it is excluded from the denominator
-rather than counted as churned — which would bias retention downward.
+rather than counted as churned - which would bias retention downward.
 
 Where a cohort has not yet reached month N, the measure returns **BLANK**, not zero. In the
 cohort matrix those blanks are visible as empty cells. A blank is an honest gap in the data;
@@ -173,7 +173,7 @@ The same raw data is analysed in Tableau in
 the cleaning is done in a reproducible Python pipeline instead of Power Query, and the
 source data and metric dictionary are published in full.
 
-The two projects were built independently and arrive at the same figures — €46 CPA against
+The two projects were built independently and arrive at the same figures - €46 CPA against
 35.9% retention for Price Comparison, €128 per retained customer, 2.9% monthly churn.
 Reproducing a result by a second route is how the method was checked.
 
@@ -199,5 +199,5 @@ The company, its customers and the competitors named in the churn data are ficti
 
 ## Author
 
-**Marina Kulman** — Data & BI Analyst, Dublin
+**Marina Kulman** - Data & BI Analyst, Dublin
 [Portfolio](https://marinakulman.github.io/Portfolio/) · [GitHub](https://github.com/marinakulman)
